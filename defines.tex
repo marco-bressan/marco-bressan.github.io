@@ -1,0 +1,162 @@
+%%%%%%%%%%%%%%% COMPATIBILTY LAYER %%%%%%%%%%%%%
+
+\providecommand\cvskip{}
+\providecommand\cvtag[1]{-[#1]-}
+\providecommand\divider\cvskip
+\providecommand{\cvevent}[4]{\textbf{#1}\par#2\par#3\par#4}
+\providecommand{\cvrow}[5]{\cvevent{#1}{#2}{#3}{#4}\par#5}
+
+%%%%%%%%%%%%%%% INTERNALS %%%%%%%%%%%%%
+
+\def\processitem#1{\cvtag{#1} } % do something with one item
+
+\def\parsepair [[#1;;#2]]{%
+\processitem{#1}%      % handle current item
+\ifx\relax#2\relax
+% no more items
+\else
+\parsepair [[#2]]%      % recurse on the rest
+\fi
+}
+
+\def\simplelist\lbeg #1 \lend{\parsepair [[#1;;\relax]]}
+
+\def\skillgrade#1{%
+\ifx1#1 (di base)\else\ifx2#1 (discreta)\else\ifx3#1 (avanzata)\else\relax\fi\fi\fi
+}
+
+
+%%%%%%%%%%%%%%% OTHER COMMANDS %%%%%%%%%%%%%
+
+\newcommand{\cvskills}[2]{%
+\textbf{#1} \\[2mm]
+
+{\raggedright\simplelist \lbeg #2 \lend}} % #1=title, #2=list
+
+\newcommand{\cvdatefromto}[3][\relax]{#2 -- #3\ifx\relax#1\relax\else{ #1}\fi}
+\newenvironment{citemize}{\begin{itemize}}{\end{itemize}}
+\newcommand{\virg}[1]{``#1''}
+
+
+%%%%%%%%%%%%%%% CONTENT COMMANDS %%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% ITALIAN %%%%%%%%%%%%%
+
+\newcommand{\myeducationIT}{% Istruzione
+\cvrow{Laurea Magistrale in Scienze Statistiche}{Università degli Studi di Padova}{\cvdatefromto{Set. 2023}{Nov. 2025}}{}{Tesi: \textit{Network Control Risk Regression: An Integrated Approach to Network Meta-Analysis in Case-Control Studies}\\
+Valutazione: 104/110
+}
+
+\divider
+
+\cvrow{Laurea Triennale in Statistica Matematica e Trattamento Informatico dei Dati (SMID)}{Università degli Studi di Genova}{\cvdatefromto{Set. 2018}{Set. 2022}}{}{Tesi: \textit{Modelli demografici predittivi subregionali per la Liguria}\\
+Valutazione: 109/110
+}%END
+}
+
+\newcommand{\myworkIT}{% Esperienza lavorativa e di ricerca
+	\cvrow{Analista dati e programmatore R/C++ (collaborazione coordinata e continuativa)}{Liguria Ricerche S.p.A.}{\cvdatefromto{Nov. 2024}{Lug. 2025}}{}{\begin{citemize}
+		\item Riscrittura e significativo ampliamento del codice in {C++} redatto durante la Borsa di Ricerca.
+		\item Aggiunta di funzionalità al modello demografico in termini di ripesatura e consistenza territoriale delle previsioni.
+		\item Valutazione delle prestazioni del modello e produzione di una relazione finale sull'andamento della popolazione in Liguria.
+		\item Organizzazione di {incontri di formazione} ai funzionari pubblici sull'utilizzo dello strumento.
+\end{citemize}
+}
+
+\divider
+
+\cvrow{Coordinatore della rilevazione \textit{Customer Satisfaction} sul turismo}{Camera di Commercio Genova}{\cvdatefromto{Lug. 2023}{Ott. 2023}}{}{\begin{citemize}%
+		\item {Analisi dati} in tempo reale delle risposte ai questionari somministrati e {redazione di reportistica} sia generale che specifica per ciascun rilevatore.
+		\item Costruzione della banca dati della rilevazione in {Excel} e utilizzo di {PowerQuery} per l'importazione dei dati.
+		\item Supporto nella stesura del documento finale elaborato da Regione Liguria sull'analisi delle abitudini dei turisti.
+\end{citemize}
+}
+
+\divider
+
+\cvrow{Borsista di ricerca in previsioni demografiche per la Liguria al 2060}{Dipartimento di Scienze Politiche, Università degli Studi di Genova}{\cvdatefromto{Dic. 2022}{Ott. 2024}}{}{\begin{citemize}
+		\item Sviluppo dell'algoritmo di previsione demografica a componenti di coorte, integrando modelli per la previsione delle singole componenti demografiche specifiche.
+		\item Implementazione della metodologia Istat per la stima della popolazione a livello comunale e sub-comunale.
+		\item Compilazione di un pacchetto ibrido R/C++.
+		\item Sviluppo di una {web-app \emph{Shiny}} per interagire con il modello e i dati.
+\end{citemize}
+}
+
+\divider
+
+\cvrow{Tirocinio curriculare per lo sviluppo di modelli demografici previsionali per la Liguria}{Dipartimento di Matematica, Università degli Studi di Genova}{\cvdatefromto{Lug. 2022}{Ott. 2022}}{}{\begin{citemize}
+		\item Creazione della {banca dati} di serie storiche contenente il bilancio della popolazione stratificato per sesso ed età, oltre a dati di natura geografica, reddituale ed occupazionale proveniente dal Censimento Permanente Popolazione e Abitazioni.
+		\item Studio teorico approfondito dei modelli demografici predittivi, oggetto della tesi triennale.
+		\item Sviluppo di un {modello demografico bayesiano} preliminare per la previsione demografica a livello provinciale.
+		\item Analisi dei gruppi (\emph{cluster analysis}) in preparazione ad una futura aggregazione territoriale su base comunale.
+\end{citemize}
+}%END
+}
+
+\newcommand{\myskillsIT}{% Competenze digitali
+\cvskills{Programmazione statistica}{%
+	R\skillgrade{3};;%
+	Python\skillgrade{2};;%
+	C++\skillgrade{2};;%
+	SQL\skillgrade{2};;%
+	Excel + PowerQuery\skillgrade{2};;%
+	MATLAB\skillgrade{1};;%
+	SAS\skillgrade{1};;%
+	Julia\skillgrade{1}%
+}
+
+\divider
+
+\cvskills{Programmazione \textit{front-end}}{%
+	R/Shiny\skillgrade{3};;%
+	PowerBI\skillgrade{1};;%
+	HTML+CSS+JS\skillgrade{1}%
+}
+
+\divider
+
+\cvskills{Impaginazione e grafica}{%
+	RMarkdown/Quarto\skillgrade{3};;%
+	LaTeX\skillgrade{2};;%
+	Inkscape\skillgrade{1};;%
+	MS Office/LibreOffice\skillgrade{3};;%
+	Scribus\skillgrade{1};;%
+	The GIMP\skillgrade{1};;%
+	Typst\skillgrade{1}%
+}
+
+\divider
+
+\cvskills{Sistemi operativi}{%
+	Linux;;%
+	Windows%
+}%END
+}
+
+\newcommand{\myeventsIT}{% Eventi
+\cvrow{UNICARTradEconomy \& Finance}{Dipartimento di Scienze Aziendali e Giuridiche, Università degli Studi della Calabria}{\cvdatefromto[Mag. 2024]{7}{9}}{ Arcavacata di Rende (CS)}{%
+	Intervento dal titolo \virg{\emph{Local Demographic Projections: Tackling Challenges of a Heterogeneous Territory}} per la presentazione del modello demografico regionale per la stima della popolazione sub-comunale.
+}
+
+\divider
+
+\cvrow{Workshop demografia}{Aula Magna, Università degli Studi di Genova}{7 Giu. 2024}{}{%
+	Intervento dal titolo \virg{\emph{Previsioni demografiche a livello locale per la Liguria: approcci modellistici in una realtà demografica eterogenea}} per la presentazione del modello demografico regionale per la stima della popolazione sub-comunale.
+
+	Co-relatore dott. Gian Lorenzo Boracchia.
+}
+
+\divider
+
+\cvrow{\emph{MILeS2023} | Milano - Impresa, Lavoro e Società}{Facoltà di Scienze Politiche, Economiche e Sociali, Università degli Studi di Milano}{4  Ott. 2023}{}{%
+	Intervento dal titolo \virg{\emph{Previsioni demografiche per la Liguria: le sfide di un territorio eterogeneo}}, per la presentazione del modello demografico locale per la Liguria.
+
+	Co-relatore dott. Mauro Natali.
+}
+
+\divider
+
+\cvrow{\emph{StatCities} Olbia}{Isola di Peddona - Porto Vecchio s.n.c.}{\cvdatefromto[Giu. 2023]{15}{16}}{Olbia}{%
+	Presentazione di due poster contenenti le principali attività svolte dalla Regione in ambito statistico, in particolare il modello di previsione demografica bayesiano e l'indagine \emph{Customer Satisfaction} sul turismo.
+}%END
+}

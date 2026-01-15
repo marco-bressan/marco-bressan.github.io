@@ -1,60 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
-    />
-    <link
-      href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f2f2f2;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .container {
-            text-align: center;
-        }
-        .title {
-            font-size: 36px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .subtitle {
-            font-size: 18px;
-            color: #666;
-        }
-    </style>
-    <title>Marco Bressan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marco Bressan - Curriculum Vitae</title>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/pcooksey/bibtex-js@1.0.0/src/bibtex_js.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="cv-style.css">
   </head>
-  
-  
   <body>
-    <div class="container">
-        <h1 class="title">Sito in costruzione</h1>
-    </div>  
+
+    <!-- Header Bar -->
+    <header class="cv-header">
+      <div class="header-content">
+        <div class="header-profile">
+          <div class="profile-photo">
+            <img src="aziendale/foto_cv.jpg" alt="Marco Bressan" onerror="this.style.display='none'">
+          </div>
+          <div style="width: 100%;">
+	    <div class="profile-info">
+	      <div>
+		<h1>Marco Bressan</h1>
+		<p>Ricercatore statistico e analista dati</p>
+	      </div>
+	      <div style="position: relative; top:0; right:0">
+		 <a id="menuToggle" class="header-menu-btn fas fa-bars">	      </a>
+		<!-- Navigation Menu -->
+		<nav class="nav-menu" id="navMenu">
+		  <ul>
+		    <li><a href="#esperienza">Esperienza lavorativa</a></li>
+		    <li><a href="#formazione">Formazione</a></li>
+		    <li><a href="#competenze">Competenze digitali</a></li>
+		    <li><a href="#lingue">Lingue</a></li>
+		    <li><a href="#conferenze">Conferenze</a></li>
+		    <li><a href="#pubblicazioni">Pubblicazioni</a></li>
+		    <li>
+		      <span>
+			<button id="lingua1" class="header-menu-btn">P</button>
+			<button id="lingua2" class="header-menu-btn">P</button>
+		      </span>
+		    </li>
+		  </ul>
+		</nav>
+
+	      </div>
+
+	    </div>
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:marco.bressan00@outlook.it">marco.bressan00@outlook.it</a>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                (+39) 340 - 071 16 76
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-home"></i>
+                Via Foscolo 1/7, 17047 Quiliano (SV)
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/marco-bressan-8885b6252/" target="_blank">LinkedIn</a>
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <a href="https://github.com/marco-bressan" target="_blank">GitHub</a>
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-orcid"></i>
+                <a href="https://orcid.org/0009-0009-8265-326X" target="_blank">ORCID</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="main-col">
+	<div id="cv-main-col">
+	  <!-- Mettere qui il CV generato -->
+	</div>
+	<section>
+	  <h2>Competenze linguistiche</h2>
+	  <table class="language-table">
+            <thead>
+              <tr>
+                <th>Lingua</th>
+                <th>Ascolto</th>
+                <th>Lettura</th>
+                <th>Interazione orale</th>
+                <th>Produzione orale</th>
+                <th>Scrittura</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Italiano</td>
+                <td colspan="5" class="native-lang">— Lingua madre —</td>
+              </tr>
+              <tr>
+                <td>Inglese</td>
+                <td class="skill-level">B2</td>
+                <td class="skill-level">B2</td>
+                <td class="skill-level">B2</td>
+                <td class="skill-level">B2</td>
+                <td class="skill-level">B2</td>
+              </tr>
+              <tr>
+                <td>Francese</td>
+                <td class="skill-level">A2</td>
+                <td class="skill-level">B1</td>
+                <td class="skill-level">A2</td>
+                <td class="skill-level">A2</td>
+                <td class="skill-level">B1</td>
+              </tr>
+            </tbody>
+	  </table>
+	</section>
+      </div>
+      <div class="side-col">
+	<div id="cv-side-col">
+	  <!-- Mettere qui il CV generato -->
+	</div>
+	<div id="bibtex_display">
+	  <div class="bibtex_template">
+	    <ul> <li>
+		<span class="if title">
+		  <a class="url">
+		    <span class="title"></span>,
+		  </a>
+		</span>
+		<div class="if author">
+		  <span class="author" conjunction = " e"></span>
+		  <span class="if year"> (<span class="year"></span>)</span>
+		</div>
+		<div>
+		  <span class="if journal"><em><span class="journal"></span></em>,</span>
+		  <span class="if pages"><span class="pages"></span></span>
+		</div>
+		<div class="if note"><span class="note"></span></div>
+	    </li></ul>
+	  </div>
+	</div>
+      </div>
+    </main>
+
+    <bibtex src="cv.bib"></bibtex>
+
+    <section class="bibtex_structure">
+      <div class="sections bibtextypekey">
+	<h2>Opere</h2>
+	<div class="section article">
+	  <h3>Articoli</h3>
+	  <div class="sort year" extra="ASC number">
+            <div class="templates"></div>
+	  </div>
+	</div>
+	<div class="section book">
+	  <h3>Libri</h3>
+	  <div class="sort year" extra="ASC number">
+            <div class="templates"></div>
+	  </div>
+	</div>
+	<div class="section inproceedings">
+	  <h3>Pubblicazioni per eventi</h3>
+	  <div class="sort year" extra="ASC number">
+            <div class="templates"></div>
+	  </div>
+	</div>
+	<div class="section manual">
+	  <h3>Manuali e <em>software</em></h3>
+	  <div class="sort year" extra="ASC number">
+            <div class="templates"></div>
+	  </div>
+	</div>
+	<div class="section misc|phdthesis|mastersthesis|bachelorsthesis|techreport">
+	  <h3>Altre pubblicazioni</h3>
+	  <div class="sort year" extra="ASC number">
+            <div class="templates"></div>
+	  </div>
+	</div>
+      </div>
+    </section>
+
+    <footer>
+      <p align="center">Copyleft <img src="copyleft.png" style="margin-bottom: -5px;"></img> 2026 Marco Bressan. Tutti i doveri riservati. Questo sito non utilizza <i>cookie</i> od altri sistemi di tracciamento.</p>
+      <div class="bottom-corner">
+	<div class="corner-fold-beneath">
+	  <a href="#">
+	    Visita il<br>mio blog!
+	  </a>
+	  <div class="corner-fold"></div>
+	</div>
+      </div>
+    </footer>
+
+    <script src="tokenizer.js"></script>
+    <script src="parser-functions.js"></script>
+    <script src="parser-consume-functions.js"></script>
+    <script src="command-palette.js"></script>
+    <script src="read-latex.js"></script>
+    <script src="main.js"></script>
   </body>
-  
 </html>
-
-
-  
-

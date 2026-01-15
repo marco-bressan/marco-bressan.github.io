@@ -1,0 +1,95 @@
+\documentclass{acadCV}
+\include{../defines.tex}
+
+\renewcommand{\cvdatefromto}[3][\relax]{%
+\ifx\relax#1
+	#2 --\\ #3\phantom{ --}
+\else
+	#2 -- #3\\#1
+\fi}
+
+\renewenvironment{citemize}{%
+	\begin{itemize}%
+		\setlength{\itemsep}{0pt}%
+		\setlength{\parskip}{0pt}%
+		\setlength{\parsep}{0pt}%
+		\setlength{\topsep}{0pt}%
+		\setlength{\partopsep}{0pt}%
+		\protect\vspace{-.25cm}%
+	}{\end{itemize}}
+
+\renewcommand{\cvskills}[2]{%
+	\cvrow{}{}{#1}{}{\raggedright\simplelist \lbeg #2 \lend}	
+} % #1=title, #2=list
+
+\renewcommand{\divider}{\relax}
+
+\title{Marco Bressan}
+\tagline{Ricercatore statistico e analista dati}
+\phone{+39 340 - 071 16 76}
+\email{ marco.bressan00@outlook.it}
+\subtitle{Dottore magistrale in Scienze Statistiche}
+\affiliation{Università degli Studi di Padova}
+\linkedin{https://www.linkedin.com/in/marco-bressan-8885b6252/}
+\linkedinname{Marco Bressan}
+\github{https://github.com/marco-bressan}
+\githubname{ marco-bressan}
+\orcid{https://orcid.org/0009-0009-8265-326X}
+
+\addbibresource{../cv.bib}
+
+\begin{document}
+\maketitle
+
+
+\section*{Istruzione}
+
+\myeducationIT
+
+\section*{Esperienza professionale e di ricerca}
+
+\myworkIT
+
+\section*{Eventi}
+
+\myeventsIT
+
+\section*{Pubblicazioni e \textit{software}}
+\nocite{bressan25}\nocite{rpkg_tesi}
+\printbibliography[heading=none]
+
+\section*{Competenze informatiche}
+
+\myskillsIT
+
+\section*{Competenze linguistiche}
+\begin{center}
+	\renewcommand{\arraystretch}{1.5}  % Makes all rows 1.5x taller
+	\begin{tabular}{l|ccccc}
+		
+		\textbf{Lingua} & \textbf{Ascolto} & \textbf{Lettura} & \textbf{Interazione orale} & \textbf{Produzione orale} & \textbf{Scrittura} \\
+		\hline
+		
+		Italiano & \multicolumn{5}{c}{\textit{--- Lingua madre ---}} \\
+		
+		Inglese* & B2 & B2 & B2 & B2 & B2 \\
+		
+		Francese & A2 & B1 & A2 & A2 & B1 \\
+		\hline
+		\multicolumn{6}{l}{\small * si allega certificazione rilasciata dall'Università degli Studi di Padova contestualmente alla domanda.}
+	\end{tabular}
+	\renewcommand{\arraystretch}{1}  % reset
+\end{center}
+
+
+
+\section*{Interessi di ricerca}
+
+\begin{itemize}
+	\item Modelli ad effetti misti
+	\item Processi di Dirichelet quali distribuzioni a priori per modelli statistici bayesiani
+	\item Algoritmi di ottimizzazione applicabili nel contesto bayesiano
+	\item Metodi statistici applicati alla Pubblica Amministrazione in ambito socio-economico
+\end{itemize}
+
+\end{document}

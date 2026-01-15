@@ -1,0 +1,5 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'acadCV.blg'
+[61] biber:342> INFO - === sab gen  3, 2026, 15:04:47
+[129] Utils.pm:479> ERROR - Cannot find 'acadCV.bcf'!
+[129] Biber.pm:137> INFO - ERRORS: 1
