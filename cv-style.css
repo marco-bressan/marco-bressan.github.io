@@ -29,6 +29,50 @@ main {
     margin: 0 auto;
 }
 
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--golden);
+    border-top: 5px solid var(--title);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeOut {
+    0% { 
+        opacity: 1;
+        visibility: visible;
+    }
+    100% { 
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.preloader.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
 footer {
     width: 100%;
     background: var(--dark-title);

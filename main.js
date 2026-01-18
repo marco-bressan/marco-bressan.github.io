@@ -99,8 +99,25 @@ async function renderCV(lang = "IT") {
 	    }
 	});
 
+	// Hide preloader when CV is fully rendered
+	const preloader = document.querySelector('.preloader');
+	if (preloader) {
+	    preloader.classList.add('fade-out');
+	    setTimeout(() => {
+		preloader.style.display = 'none';
+	    }, 500);
+	}
+
     } catch (error) {
         console.error('Error rendering CV:', error);
+	// Hide preloader even if there's an error
+	const preloader = document.querySelector('.preloader');
+	if (preloader) {
+	    preloader.classList.add('fade-out');
+	    setTimeout(() => {
+		preloader.style.display = 'none';
+	    }, 500);
+	}
     }
 }
 
