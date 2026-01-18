@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="cv-style.css">
   </head>
   <body>
-
     <!-- Header Bar -->
     <header class="cv-header">
       <div class="header-content">
@@ -21,29 +20,59 @@
 	    <div class="profile-info">
 	      <div>
 		<h1>Marco Bressan</h1>
-		<p>Ricercatore statistico e analista dati</p>
+		<p lang="IT">Ricercatore statistico e analista dati</p>
+		<p lang="EN">Statistical researcher and data analyst</p>
 	      </div>
-	      <div style="position: relative; top:0; right:0">
-		 <a id="menuToggle" class="header-menu-btn fas fa-bars">	      </a>
+	      <span style="position: relative; top:0; right:0; display: flex; gap: 8px;">
+		<button id="switch-lang-IT" class="header-menu-btn" lang="!IT"
+			onclick="renderCV('IT');">
+		  🇮🇹<span class="lang-label"> Versione italiana</span>
+		</button>
+		<button id="switch-lang-EN" class="header-menu-btn" lang="!EN"
+			onclick="renderCV('EN');">
+		  🇬🇧<span class="lang-label"> English version</span>
+		</button>
+		<a id="menuToggle" class="header-menu-btn fas fa-bars"></a>
 		<!-- Navigation Menu -->
 		<nav class="nav-menu" id="navMenu">
 		  <ul>
-		    <li><a href="#esperienza">Esperienza lavorativa</a></li>
-		    <li><a href="#formazione">Formazione</a></li>
-		    <li><a href="#competenze">Competenze digitali</a></li>
-		    <li><a href="#lingue">Lingue</a></li>
-		    <li><a href="#conferenze">Conferenze</a></li>
-		    <li><a href="#pubblicazioni">Pubblicazioni</a></li>
-		    <li>
-		      <span>
-			<button id="lingua1" class="header-menu-btn">P</button>
-			<button id="lingua2" class="header-menu-btn">P</button>
-		      </span>
+		    <li class="menu-preserve"><a href="#langskillsIT" lang="IT">Competenze linguistiche</a></li>
+		    <li class="menu-preserve"><a href="#langskillsEN" lang="EN">Language skills</a></li>
+		    <li class="menu-preserve"><a href="#biblioIT" lang="IT">Pubblicazioni</a></li>
+		    <li class="menu-preserve"><a href="#biblioEN" lang="EN">Publications</a></li>
+		    <li class="menu-preserve contact-info-sm">
+		      <span lang="IT">Informazioni di contatto</span>
+		      <span lang="EN">Contact information</span>
+		      <div class="contact-info" style="padding-top: 0">
+			<div class="contact-item">
+			  <i class="fas fa-envelope"></i>
+			  <a href="mailto:marco.bressan00@outlook.it">marco.bressan00@outlook.it</a>
+			</div>
+			<div class="contact-item">
+			  <i class="fas fa-phone"></i>
+			  (+39) 340 - 071 16 76
+			</div>
+			<div class="contact-item">
+			  <i class="fas fa-home"></i>
+			  Via Foscolo 1/7, 17047 Quiliano (SV)
+			</div>
+			<div class="contact-item">
+			  <i class="fab fa-linkedin"></i>
+			  <a href="https://www.linkedin.com/in/marco-bressan-8885b6252/" target="_blank">LinkedIn</a>
+			</div>
+			<div class="contact-item">
+			  <i class="fab fa-github"></i>
+			  <a href="https://github.com/marco-bressan" target="_blank">GitHub</a>
+			</div>
+			<div class="contact-item">
+			  <i class="fab fa-orcid"></i>
+			  <a href="https://orcid.org/0009-0009-8265-326X" target="_blank">ORCID</a>
+			</div>
+		      </div>
 		    </li>
 		  </ul>
 		</nav>
-
-	      </div>
+	      </span>
 
 	    </div>
             <div class="contact-info">
@@ -81,50 +110,48 @@
       <div class="main-col">
 	<div id="cv-main-col">
 	  <!-- Mettere qui il CV generato -->
+	  <div id="js-banner">
+	    <h1><i class="fas fa-danger" style="font-size: 35px"></i></h1>
+	    <h1>Attenzione!</h1>
+	    <p> È richiesto l'uso di Javascript per caricare il contenuto del sito.</p>
+	  </div>
 	</div>
-	<section>
-	  <h2>Competenze linguistiche</h2>
+	<section style="overflow:scroll;">
+	  <h2 id="langskillsIT" lang="IT">Competenze linguistiche</h2>
+	  <h2 id="langskillsEN"lang="EN">Language skills</h2>
 	  <table class="language-table">
             <thead>
               <tr>
-                <th>Lingua</th>
-                <th>Ascolto</th>
-                <th>Lettura</th>
-                <th>Interazione orale</th>
-                <th>Produzione orale</th>
-                <th>Scrittura</th>
+                <th><span lang="IT">Lingua</span><span lang="EN">Language</span></th>
+                <th><span lang="IT">Ascolto</span><span lang="EN">Listening</span></th>
+                <th><span lang="IT">Lettura</span><span lang="EN">Reading</span></th>
+                <th><span lang="IT">Produzione orale</span><span lang="EN">Speaking</span></th>
+                <th><span lang="IT">Produzione scritta</span><span lang="EN">Writing</span></th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Italiano</td>
-                <td colspan="5" class="native-lang">— Lingua madre —</td>
+                <td colspan="5" class="native-lang"><span lang="IT">Lingua madre</span><span lang="EN">Mothertongue</span></td>
               </tr>
               <tr>
-                <td>Inglese</td>
-                <td class="skill-level">B2</td>
+                <td>English</td>
                 <td class="skill-level">B2</td>
                 <td class="skill-level">B2</td>
                 <td class="skill-level">B2</td>
                 <td class="skill-level">B2</td>
               </tr>
               <tr>
-                <td>Francese</td>
+                <td>Français</td>
                 <td class="skill-level">A2</td>
                 <td class="skill-level">B1</td>
-                <td class="skill-level">A2</td>
                 <td class="skill-level">A2</td>
                 <td class="skill-level">B1</td>
               </tr>
             </tbody>
 	  </table>
 	</section>
-      </div>
-      <div class="side-col">
-	<div id="cv-side-col">
-	  <!-- Mettere qui il CV generato -->
-	</div>
-	<div id="bibtex_display">
+		<div id="bibtex_display">
 	  <div class="bibtex_template">
 	    <ul> <li>
 		<span class="if title">
@@ -133,7 +160,7 @@
 		  </a>
 		</span>
 		<div class="if author">
-		  <span class="author" conjunction = " e"></span>
+		  <span class="author" conjunction=" e"></span>
 		  <span class="if year"> (<span class="year"></span>)</span>
 		</div>
 		<div>
@@ -145,39 +172,50 @@
 	  </div>
 	</div>
       </div>
+      <div class="side-col">
+	<div id="cv-side-col">
+	  <!-- Mettere qui il CV generato -->
+	</div>
+      </div>
     </main>
 
     <bibtex src="cv.bib"></bibtex>
 
     <section class="bibtex_structure">
       <div class="sections bibtextypekey">
-	<h2>Opere</h2>
+	<h2 id="biblioIT" lang="IT">Pubblicazioni</h2>
+	<h2 id="biblioEN"lang="EN">Publications</h2>
 	<div class="section article">
-	  <h3>Articoli</h3>
+	  <h3 lang="IT">Articoli</h3>
+	  <h3 lang="EN">Articles</h3>
 	  <div class="sort year" extra="ASC number">
             <div class="templates"></div>
 	  </div>
 	</div>
 	<div class="section book">
-	  <h3>Libri</h3>
+	  <h3 lang="IT">Libri</h3>
+	  <h3 lang="EN">Books</h3>
 	  <div class="sort year" extra="ASC number">
             <div class="templates"></div>
 	  </div>
 	</div>
 	<div class="section inproceedings">
-	  <h3>Pubblicazioni per eventi</h3>
+	  <h3 lang="IT">Pubblicazioni per eventi</h3>
+	  <h3 lang="EN">Conference preceedings</h3>
 	  <div class="sort year" extra="ASC number">
             <div class="templates"></div>
 	  </div>
 	</div>
 	<div class="section manual">
-	  <h3>Manuali e <em>software</em></h3>
+	  <h3 lang="IT">Manuali e <em>software</em></h3>
+	  <h3 lang="EN">Manuals and software</h3>
 	  <div class="sort year" extra="ASC number">
             <div class="templates"></div>
 	  </div>
 	</div>
 	<div class="section misc|phdthesis|mastersthesis|bachelorsthesis|techreport">
-	  <h3>Altre pubblicazioni</h3>
+	  <h3 lang="IT">Altre pubblicazioni</h3>
+	  <h3 lang="EN">Other work</h3>
 	  <div class="sort year" extra="ASC number">
             <div class="templates"></div>
 	  </div>
@@ -186,13 +224,27 @@
     </section>
 
     <footer>
-      <p align="center">Copyleft <img src="copyleft.png" style="margin-bottom: -5px;"></img> 2026 Marco Bressan. Tutti i doveri riservati. Questo sito non utilizza <i>cookie</i> od altri sistemi di tracciamento.</p>
-      <div class="bottom-corner">
-	<div class="corner-fold-beneath">
-	  <a href="#">
-	    Visita il<br>mio blog!
-	  </a>
-	  <div class="corner-fold"></div>
+      <div>
+	<p>
+	  Copyleft
+	  <img src="copyleft.png" class="copyleft-logo"></img>
+	  2026 Marco Bressan.
+	  <span lang="EN">All wrongs reserved.</span>
+	  <span lang="IT">Tutti i doveri riservati.</span>
+	  <span lang="EN">This website doesn't use cookies or other tracking system.</span>
+	  <span lang="IT">Questo sito non utilizza <i>cookie</i> od altri sistemi di tracciamento.</span>
+	</p>
+      </div>
+
+      <div>
+	<div class="bottom-corner">
+	  <div class="corner-fold-beneath">
+	    <a href="#">
+	      <p lang="IT">Visita il<br>mio blog!</p>
+	      <p lang="EN">Visit<br>my blog!</p>
+	    </a>
+	    <div class="corner-fold"></div>
+	  </div>
 	</div>
       </div>
     </footer>

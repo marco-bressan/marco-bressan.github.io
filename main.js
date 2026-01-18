@@ -1,12 +1,24 @@
+function newMenuEntry(command, title, lang) {
+    return `<li><a href="#${command}">${title}</a></li>`
+}
+
+function buildMenu(newele) {
+    let preserveList = document.querySelectorAll("#navMenu > ul > li.menu-preserve");
+    let menuElement = document.querySelector("#navMenu > ul");
+    menuElement.innerHTML = newele.join("\n");
+    preserveList.forEach(node => menuElement.appendChild(node));
+    loadMenu()
+}
+
 function loadMenu() {
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
-    const navLinks = navMenu.querySelectorAll('a');
+    const navLinks = navMenu.querySelectorAll('#navMenu > ul > li > a');
 
     // Toggle menu
     menuToggle.addEventListener('click', function(e) {
         e.stopPropagation();
-        navMenu.classList.toggle('active');
+        navMenu.classList.add('active');
     });
 
     // Close menu when clicking outside
@@ -46,7 +58,7 @@ function loadMenu() {
 /**
  * Renders the parsed LaTeX commands into the CV DOM element
  */
-async function renderCV() {
+async function renderCV(lang = "IT") {
     try {
         const commands = await parseLatexCVCommands();
         if (!commands) {
@@ -57,19 +69,36 @@ async function renderCV() {
         const cvMainCol = document.getElementById('cv-main-col');
 	const cvSideCol = document.getElementById('cv-side-col');
 
-        cvMainCol.innerHTML = ''; // Clear existing content
-	cvSideCol.innerHTML = '';
-	console.log(commands);
+        let cvMainColHTML = ''; // Clear existing content
+	let cvSideColHTML = '';
+	let newmenu = [];
         for (const [commandName, latexContent] of Object.entries(commands)) {
+	    if (latexContent.lang !== lang) continue;
             const tokens = tokenizeLatex(latexContent.content);
             const html = `<section lang="${latexContent.lang}">
 <h2 id=${commandName}>${latexContent.title}</h2>${evalPieces(tokens)}
 </section>`;
-	    if (commandName.includes("skill") || commandName.includes("education"))
-		cvSideCol.innerHTML += html;
+	    if (/skill|education|event/.test(commandName))
+		cvSideColHTML += html;
             else
-		cvMainCol.innerHTML += html;
+		cvMainColHTML += html;
+	    newmenu.push(newMenuEntry(commandName, latexContent.title, latexContent.lang));
         }
+	console.log(newmenu);
+	cvMainCol.innerHTML = cvMainColHTML;
+	cvSideCol.innerHTML = cvSideColHTML;
+	buildMenu(newmenu);
+
+	document.querySelectorAll("*[lang]:not(html)").forEach(ele => {
+	    let invert = ele.lang.startsWith("!");
+	    let show = ele.lang.includes(lang);
+	    if (show && !invert || !show && invert)
+		ele.classList.remove("hidden");
+	    else if  (!show && !invert || show && invert) {
+		ele.classList.add("hidden");
+	    }
+	});
+
     } catch (error) {
         console.error('Error rendering CV:', error);
     }
@@ -77,7 +106,5 @@ async function renderCV() {
 
 // Auto-render CV when the page loads
 if (typeof window !== 'undefined') {
-    window.addEventListener('DOMContentLoaded', renderCV);
+    window.addEventListener('DOMContentLoaded', e => renderCV());
 }
-
-document.addEventListener('DOMContentLoaded', loadMenu);
